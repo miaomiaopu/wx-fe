@@ -1,5 +1,5 @@
 <!--pages/login/login.wxml-->
 <view class="container">
-  <van-image round width="10rem" height="10rem" src="https://img.yzcdn.cn/vant/cat.jpeg"></van-image>
+  <van-image round width="10rem" height="10rem" src="/public/images/zk-logo-144-144.jpg"></van-image>
   <van-button round type="primary" size="large" block class="login-btn" bind:tap="wxLogin">微 信 一 键 登 录</van-button>
 </view>
