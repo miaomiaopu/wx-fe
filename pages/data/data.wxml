@@ -1,0 +1,10 @@
+<!--pages/data/data.wxml-->
+<view class="container">
+  <text class="head">我的数据</text>
+  <van-grid class="data-grid" column-num="2" border="{{ false }}">
+    <van-grid-item use-slot wx:for="{{ dataList }}" wx:key="index">
+      <text class="prop">{{item.prop}}</text>
+      <text class="num">{{item.num}}</text>
+    </van-grid-item>
+  </van-grid>
+</view>

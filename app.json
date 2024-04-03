@@ -1,7 +1,26 @@
 {
   "pages": [
-    "pages/login/login"
+    "pages/login/login",
+    "pages/data/data",
+    "pages/theme/theme"
   ],
+  "tabBar": {
+    "color": "#2c2c2c",
+    "selectedColor": "#90bd90",
+    "list": [{
+        "pagePath": "pages/theme/theme",
+        "text": "学习",
+        "iconPath": "/static/tabBar/icon_learn_normal_0.png",
+        "selectedIconPath": "/static/tabBar/icon_learn_normal_1.png"
+      },
+      {
+        "pagePath": "pages/data/data",
+        "text": "数据",
+        "iconPath": "/static/tabBar/data_0.png",
+        "selectedIconPath": "/static/tabBar/data_1.png"
+      }
+    ]
+  },
   "window": {
     "navigationBarTextStyle": "black",
     "navigationBarTitleText": "紫卡",

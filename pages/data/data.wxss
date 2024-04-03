@@ -1,0 +1,35 @@
+/* pages/data/data.wxss */
+.container {
+  padding-top: 1rem;
+}
+
+.head {
+  font-size: x-large;
+  font-weight: bold;
+  width: 90vw;
+  text-align: left;
+}
+
+.data-grid {
+  margin: 1rem 0;
+  width: 90vw;
+  border: 1px solid gainsboro;
+  box-shadow: 0.3rem 0.3rem 0.3rem gray;
+}
+
+.prop {
+  padding-left: 1rem;
+  font-size: large;
+  font-weight: bold;
+  text-align: left;
+  width: 45vw;
+}
+
+.num {
+  padding-right: 4rem;
+  font-size: large;
+  font-style: italic;
+  width: 45vw;
+  text-align: right;
+  color: darkgray;
+}
