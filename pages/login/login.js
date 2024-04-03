@@ -23,42 +23,67 @@ Page({
         if (res.code) {
           wx.request({
             url: 'http://localhost:8000/api/login',
-            data: { code: res.code },
+            data: {
+              code: res.code
+            },
             method: 'POST',
             timeout: 0,
             success: (result) => {
               console.log(result)
-              wx.setStorageSync('third_session', result.data.third_session)
+              if (result.statusCode == 200 || result.statusCode == 201) {
+                wx.setStorageSync('third_session', result.data.third_session)
+                wx.switchTab({
+                  url: 'pages/theme/theme',
+                })
+              }
             },
             fail: (err) => {
               console.log(err)
-              wx.showToast({ title: '一键登录失败，请重试', icon: 'none', duration: 2000 });
+              wx.showToast({
+                title: '一键登录失败，请重试',
+                icon: 'none',
+                duration: 2000
+              });
             },
           })
         } else {
-          wx.showToast({ title: '一键登录失败，请重试', icon: 'none', duration: 2000 });
+          wx.showToast({
+            title: '一键登录失败，请重试',
+            icon: 'none',
+            duration: 2000
+          });
         }
       },
       fail: (err) => {
         console.log(err)
-        wx.showToast({ title: '一键登录失败，请重试', icon: 'none', duration: 2000 });
+        wx.showToast({
+          title: '一键登录失败，请重试',
+          icon: 'none',
+          duration: 2000
+        });
       }
     })
   },
   loginWithThirdSession(third_session) {
     wx.request({
       url: 'http://localhost:8000/api/login',
-      data: { third_session: third_session },
+      data: {
+        third_session: third_session
+      },
       method: 'POST',
       timeout: 0,
       success: (result) => {
         console.log(result)
+        if (result.statusCode == 404) {
+          this.wxLoginWithCode();
+        } else if (result.statusCode == 200) {
+          wx.switchTab({
+            url: '/pages/theme/theme',
+          })
+        }
       },
       fail: (err) => {
         console.log(err)
-        if (err.statusCode == 404) {
-          this.wxLoginWithCode();
-        }
       },
     })
   }
