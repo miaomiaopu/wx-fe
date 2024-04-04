@@ -16,3 +16,5 @@ miniprogram_npm/
 
 #clode
 .cloudbase/
+
+.prettierrc
