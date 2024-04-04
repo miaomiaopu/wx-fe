@@ -1,6 +1,7 @@
 /* pages/data/data.wxss */
 .container {
   padding-top: 1rem;
+  padding-bottom: 0;
 }
 
 .head {
@@ -32,4 +33,9 @@
   width: 45vw;
   text-align: right;
   color: darkgray;
+}
+
+.calendar {
+  padding-top: 1rem;
+  height: 42.3vh;
 }

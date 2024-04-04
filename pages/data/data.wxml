@@ -3,8 +3,22 @@
   <text class="head">我的数据</text>
   <van-grid class="data-grid" column-num="2" border="{{ false }}">
     <van-grid-item use-slot wx:for="{{ dataList }}" wx:key="index">
-      <text class="prop">{{item.prop}}</text>
-      <text class="num">{{item.num}}</text>
+      <text class="prop">{{ item.prop }}</text>
+      <text class="num">{{ item.num }}</text>
     </van-grid-item>
   </van-grid>
+  <text class="head">签到</text>
+  <van-calendar
+    class="calendar"
+    type="multiple"
+    show-title="{{ false }}"
+    show-subtitle="{{ false }}"
+    row-height="38"
+    poppable="{{ false }}"
+    show-confirm="{{ false }}"
+    readonly="{{ true }}"
+    min-date="{{ threeMonthsAgo }}"
+    max-date="{{ today }}"
+    default-date="{{ check_ins }}"
+  ></van-calendar>
 </view>
