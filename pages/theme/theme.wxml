@@ -1,4 +1,23 @@
 <!--pages/theme/theme.wxml-->
-<view>
-  <text>pages/theme/theme.wxml</text>
+<view class="container">
+  <van-sticky>
+    <view class="userinfo">
+      <van-image
+        class="avatar"
+        width="3rem"
+        height="3rem"
+        src="{{ avatar }}"
+        radius="0.5rem"
+        bind:click="infoChange"
+      ></van-image>
+      <text class="nickname">{{ nickname }}</text>
+      <van-icon
+        class="commenticon"
+        name="comment-o"
+        size="2rem"
+        dot="{{ info_dot }}"
+        bind:click="commentInfo"
+      ></van-icon>
+    </view>
+  </van-sticky>
 </view>

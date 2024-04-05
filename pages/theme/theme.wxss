@@ -1,1 +1,25 @@
 /* pages/theme/theme.wxss */
+.container {
+  padding-top: 0.5rem;
+  padding-bottom: 0;
+}
+
+.userinfo {
+  display: flex; /* 使用 flex 布局 */
+  justify-self: space-between;
+  align-items: center; /* 垂直居中对齐 */
+  width: 90vw;
+}
+
+.avatar {
+  flex: auto;
+}
+
+.nickname {
+  font-size: x-large;
+  padding-right: 4rem;
+}
+
+.commenticon {
+  padding-right: 1rem;
+}
