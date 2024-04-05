@@ -1,0 +1,30 @@
+/* components/information/information.wxss */
+.component {
+  margin-top: 0.5rem;
+  width: 90vw;
+}
+
+.information-list {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  border: #07c160 solid 2px;
+  border-radius: 1rem;
+}
+
+.message {
+  width: 15rem;
+  white-space: nowrap; /* 不换行 */
+  overflow: hidden; /* 隐藏溢出部分 */
+  text-overflow: ellipsis; /* 使用省略号代替溢出部分 */
+}
+
+.popup-content {
+  margin-top: 0.3rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+.popup-text {
+  white-space: pre-wrap; /* 允许自动换行 */
+  word-wrap: break-word; /* 在单词内换行 */
+}

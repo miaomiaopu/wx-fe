@@ -1,0 +1,17 @@
+<!--components/userform/userform.wxml-->
+<view class="component">
+  <van-cell-group title="修改用户昵称" inset="{{ true }}">
+    <van-field
+      size="large"
+      placeholder="请输入昵称"
+      type="nickname"
+      bind:blur="_handleInput"
+    >
+    </van-field>
+    <view class="button">
+      <van-button size="large" type="primary" round bind:tap="_submit"
+        >确认修改</van-button
+      >
+    </view>
+  </van-cell-group>
+</view>

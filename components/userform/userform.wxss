@@ -1,0 +1,12 @@
+/* components/userform/userform.wxss */
+.component {
+  margin-top: 3.5rem;
+  padding-bottom: 1rem;
+  width: 90vw;
+  border: #07c160 solid 2px;
+  border-radius: 1rem;
+}
+
+.button {
+  margin-top: 1rem;
+}

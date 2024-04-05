@@ -8,18 +8,27 @@
   display: flex; /* 使用 flex 布局 */
   justify-self: space-between;
   align-items: center; /* 垂直居中对齐 */
-  width: 90vw;
+  background-color: white;
+  width: 100vw;
 }
 
 .avatar {
+  margin-left: 0.5rem;
   flex: auto;
 }
 
 .nickname {
   font-size: x-large;
   padding-right: 4rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
-.commenticon {
+.wap-home-o {
+  padding-right: 0.5rem;
+}
+
+.comment-o {
   padding-right: 1rem;
 }

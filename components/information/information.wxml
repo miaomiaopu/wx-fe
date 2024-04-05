@@ -1,0 +1,37 @@
+<!--components/information/information.wxml-->
+<view class="component">
+  <van-empty description="无消息" wx:if="{{ informations.length === 0 }}" />
+  <view wx:if="{{ informations.length != 0 }}">
+    <van-button
+      disabled="{{ !info_dot }}"
+      plain
+      type="primary"
+      bind:click="_handleAllInfomations"
+      >全部已读</van-button
+    >
+    <view class="information-list">
+      <van-cell-group inset>
+        <van-cell
+          wx:for="{{ informations }}"
+          wx:key="info_id"
+          use-label-slot
+          bind:tap="_handleInformation"
+          data-infoid="{{ item.info_id }}"
+          data-message="{{ item.message }}"
+          data-ishandle="{{ item.is_handle }}"
+        >
+          <view slot="title">{{ item.time }}</view>
+          <view slot="" wx:if="{{ item.is_handle }}">已读</view>
+          <view slot="" wx:else>未读</view>
+          <view class="message" slot="label">{{ item.message }}</view>
+        </van-cell>
+      </van-cell-group>
+    </view>
+  </view>
+</view>
+
+<van-popup position="bottom" show="{{ showPopup }}" bind:close="closePopup">
+  <view class="popup-content">
+    <text class="popup-text">{{ popupMessage }}</text>
+  </view>
+</van-popup>

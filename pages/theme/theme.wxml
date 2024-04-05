@@ -1,6 +1,6 @@
 <!--pages/theme/theme.wxml-->
 <view class="container">
-  <van-sticky>
+  <van-sticky offset-top="-1">
     <view class="userinfo">
       <van-image
         class="avatar"
@@ -8,16 +8,28 @@
         height="3rem"
         src="{{ avatar }}"
         radius="0.5rem"
-        bind:click="infoChange"
+        bind:tap="infoChange"
       ></van-image>
       <text class="nickname">{{ nickname }}</text>
+      <van-icon class="wap-home-o" name="wap-home-o" size="2rem" />
       <van-icon
-        class="commenticon"
+        class="comment-o"
         name="comment-o"
         size="2rem"
         dot="{{ info_dot }}"
-        bind:click="commentInfo"
+        bind:tap="commentInfo"
       ></van-icon>
     </view>
   </van-sticky>
+  <index wx:if="{{ currentTab == 1 }}"> </index>
+  <userform
+    nickname="{{ nickname }}"
+    bind:changeNickname="changeNickname"
+    wx:if="{{ currentTab == 2 }}"
+  ></userform>
+  <information
+    info_dot="{{ info_dot }}"
+    bind:updateInfoDot="updateInfoDot"
+    wx:if="{{ currentTab == 3 }}"
+  ></information>
 </view>
