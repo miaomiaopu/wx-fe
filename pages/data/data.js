@@ -63,7 +63,7 @@ Page({
           });
         } else if (result.statusCode == 200) {
           this.setData({
-            check_ins: result.data.check_ins,
+            check_ins: result.data.checkins,
           });
         }
       },
