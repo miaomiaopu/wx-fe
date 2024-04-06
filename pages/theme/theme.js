@@ -5,7 +5,7 @@ Page({
     avatar:
       "https://thirdwx.qlogo.cn/mmopen/vi_32/POgEwh4mIHO4nibH0KlMECNjjGxQUq24ZEaGT4poC6icRiccVGKSyXwibcPq4BWmiaIGuG1icwxaQX6grC9VemZoJ8rg/132",
     info_dot: false,
-    currentTab: 3
+    currentTab: 1,
   },
   onLoad(options) {
     this.getInfo();
@@ -37,12 +37,25 @@ Page({
       },
     });
   },
-  infoChange: function () {},
-  commentInfo: function () {},
+  infoChange: function () {
+    this.setData({
+      currentTab: 2,
+    });
+  },
+  changeIndex: function () {
+    this.setData({
+      currentTab: 1,
+    });
+  },
+  changeInformation: function () {
+    this.setData({
+      currentTab: 3,
+    });
+  },
   changeNickname: function (e) {
     this.setData({
-      nickname: e.detail.nickname_new
-    })
+      nickname: e.detail.nickname_new,
+    });
   },
   updateInfoDot: function () {
     const third_session = wx.getStorageSync("third_session");
@@ -69,5 +82,5 @@ Page({
         console.log(err);
       },
     });
-  }
+  },
 });

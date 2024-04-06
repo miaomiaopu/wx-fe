@@ -11,13 +11,13 @@
         bind:tap="infoChange"
       ></van-image>
       <text class="nickname">{{ nickname }}</text>
-      <van-icon class="wap-home-o" name="wap-home-o" size="2rem" />
+      <van-icon class="wap-home-o" name="wap-home-o" size="2rem" bind:tap="changeIndex"/>
       <van-icon
         class="comment-o"
         name="comment-o"
         size="2rem"
         dot="{{ info_dot }}"
-        bind:tap="commentInfo"
+        bind:tap="changeInformation"
       ></van-icon>
     </view>
   </van-sticky>
