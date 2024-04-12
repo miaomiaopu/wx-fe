@@ -1,2 +1,4 @@
 <!--components/index/index.wxml-->
-<text>components/index/index.wxml</text>
+<view class="container">
+  <van-button icon="plus" plain type="primary" bind:tap="toCreateTheme">新建主题</van-button>
+</view>

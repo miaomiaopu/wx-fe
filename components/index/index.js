@@ -36,5 +36,10 @@ Component({
         },
       });
     },
+    toCreateTheme: function () {
+      wx.navigateTo({
+        url: '../../pages/ctheme/ctheme',
+      })
+    }
   },
 });

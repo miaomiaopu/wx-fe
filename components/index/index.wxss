@@ -1,1 +1,5 @@
 /* components/index/index.wxss */
+.container {
+  padding-top: 1rem;
+  width: 90vw;
+}

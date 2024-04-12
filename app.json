@@ -2,12 +2,14 @@
   "pages": [
     "pages/login/login",
     "pages/data/data",
-    "pages/theme/theme"
+    "pages/theme/theme",
+    "pages/ctheme/ctheme"
   ],
   "tabBar": {
     "color": "#2c2c2c",
     "selectedColor": "#90bd90",
-    "list": [{
+    "list": [
+      {
         "pagePath": "pages/theme/theme",
         "text": "学习",
         "iconPath": "/static/tabBar/icon_learn_normal_0.png",
