@@ -60,6 +60,13 @@ Page({
         timeout: 0,
         success: (result) => {
           console.log(result);
+          if (result.statusCode == 404) {
+            wx.reLaunch({
+              url: "/pages/login/login",
+            });
+          } else if (result.statusCode == 201) {
+            wx.navigateBack();
+          }
         },
         fail: (err) => {
           console.log(err);
@@ -78,6 +85,13 @@ Page({
         timeout: 0,
         success: (result) => {
           console.log(result);
+          if (result.statusCode == 404) {
+            wx.reLaunch({
+              url: "/pages/login/login",
+            });
+          } else if (result.statusCode == 201) {
+            wx.navigateBack();
+          }
         },
         fail: (err) => {
           console.log(err);
