@@ -1,4 +1,73 @@
 <!--components/index/index.wxml-->
 <view class="container">
-  <van-button icon="plus" plain type="primary" bind:tap="toCreateTheme">新建主题</van-button>
+  <van-button icon="plus" plain type="primary" bind:tap="toCreateTheme"
+    >新建主题</van-button
+  >
+  <view class="theme-view">
+    <text class="theme-head">我的主题</text>
+    <van-empty description="无主题" wx:if="{{ my_themes.length == 0 }}"></van-empty>
+    <van-swipe-cell
+      left-width="{{ 65 }}"
+      right-width="{{ 65 }}"
+      wx:for="{{ my_themes }}"
+      wx:key="theme_id"
+      bind:click="onMyThemeClick"
+    >
+      <view slot="left" class="update-button">修改</view>
+      <van-card
+        thumb="{{ item.theme_picture }}"
+        thumb-mode="scaleToFill"
+        title="ID: {{ item.theme_id }}"
+        desc="{{ item.theme_name }}"
+        lazy-load
+      >
+        <view slot="tags">
+          <van-tag
+            plain
+            type="primary"
+            wx:for="{{ item.tags }}"
+            wx:key="*this"
+            wx:for-item="tagItem"
+            custom-class="tag-class"
+          >
+            {{ tagItem }}
+          </van-tag>
+        </view>
+      </van-card>
+      <view slot="right" class="delete-button">删除</view>
+    </van-swipe-cell>
+  </view>
+
+  <view class="theme-view">
+    <text class="theme-head">我的订阅</text>
+    <van-empty description="无主题" wx:if="{{ sub_themes.length == 0 }}"></van-empty>
+    <van-swipe-cell
+      right-width="{{ 85 }}"
+      wx:for="{{ sub_themes }}"
+      wx:key="theme_id"
+      bind:click="onSubThemeClick"
+    >
+      <van-card
+        thumb="{{ item.theme_picture }}"
+        thumb-mode="scaleToFill"
+        title="ID: {{ item.theme_id }}"
+        desc="{{ item.theme_name }}"
+        lazy-load
+      >
+        <view slot="tags">
+          <van-tag
+            plain
+            type="primary"
+            wx:for="{{ item.tags }}"
+            wx:key="*this"
+            wx:for-item="tagItem"
+            custom-class="tag-class"
+          >
+            {{ tagItem }}
+          </van-tag>
+        </view>
+      </van-card>
+      <view slot="right" class="cancel-button">取消订阅</view>
+    </van-swipe-cell>
+  </view>
 </view>

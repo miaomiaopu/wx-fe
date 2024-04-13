@@ -3,3 +3,49 @@
   padding-top: 1rem;
   width: 90vw;
 }
+
+.theme-view {
+  padding-top: 0.5rem;
+}
+
+.theme-head {
+  line-height: 2.5rem;
+  font-size: x-large;
+}
+
+.update-button {
+  display: flex;
+  margin-right: 0.1rem;
+  width: 65px;
+  height: 100%;
+  background-color: #07c160;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.delete-button {
+  display: flex;
+  margin-left: 0.14rem;
+  width: 65px;
+  height: 100%;
+  background-color: #ee0a24;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.cancel-button {
+  display: flex;
+  margin-left: 0.14rem;
+  width: 85px;
+  height: 100%;
+  background-color: #07c160;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.tag-class {
+  margin-right: 0.3rem;
+}
