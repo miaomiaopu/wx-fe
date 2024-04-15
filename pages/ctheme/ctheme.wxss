@@ -4,8 +4,6 @@
   margin-left: 5vw;
   margin-right: 5vw;
   width: 90vw;
-  border: aquamarine solid 0.2rem;
-  border-radius: 1rem;
 }
 
 .title {

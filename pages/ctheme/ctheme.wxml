@@ -44,6 +44,7 @@
         wx:for="{{ tags }}"
         wx:key="index"
         bind:close="onTagClose"
+        data-index="{{ index }}"
       >
         {{ item }}
       </van-tag>
