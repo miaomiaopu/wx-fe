@@ -24,11 +24,12 @@ Component({
   lifetimes: {
     attached() {
       this.checkin();
+      this.getTheme(); // 确保Component切回来时能够刷新数据
     },
   },
   pageLifetimes: {
     show() {
-      this.getTheme(); // 确保切回来时能够刷新数据
+      this.getTheme(); // 确保navigateBack切回来时能够刷新数据
     }
   },
   methods: {
