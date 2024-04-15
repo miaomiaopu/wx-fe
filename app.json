@@ -3,7 +3,8 @@
     "pages/login/login",
     "pages/data/data",
     "pages/theme/theme",
-    "pages/ctheme/ctheme"
+    "pages/ctheme/ctheme",
+    "pages/utheme/utheme"
   ],
   "tabBar": {
     "color": "#2c2c2c",

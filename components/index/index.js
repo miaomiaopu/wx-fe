@@ -30,7 +30,7 @@ Component({
   pageLifetimes: {
     show() {
       this.getTheme(); // 确保navigateBack切回来时能够刷新数据
-    }
+    },
   },
   methods: {
     checkin: function () {
@@ -71,11 +71,19 @@ Component({
       const index = event.currentTarget.dataset.index;
       const third_session = wx.getStorageSync("third_session");
 
+      const theme = this.data.my_themes[index];
+
       if (position === "left") {
-        console.log("update");
+        // 修改主题
+        // 序列化对象
+        const themeParams = encodeURIComponent(JSON.stringify(theme));
+        wx.navigateTo({
+          url: `../../pages/utheme/utheme?theme=${themeParams}`,
+        });
       } else if (position === "cell") {
         console.log("detail");
       } else if (position === "right") {
+        // 删除主题
         wx.request({
           url: "http://localhost:8000/api/deleteMyTheme",
           data: {

@@ -1,0 +1,73 @@
+<!--pages/utheme/utheme.wxml-->
+<view class="container">
+  <text class="title">主题ID: {{ theme_id }}</text>
+  <van-cell-group>
+    <van-field
+      label-class="label"
+      custom-class="input"
+      type="textarea"
+      label="主题名"
+      title-width="3.5rem"
+      maxlength="128"
+      required
+      show-word-limit
+      autosize="{{ {maxHeight: 300, minHeight: 110} }}"
+      model:value="{{ themeInput }}"
+    ></van-field>
+    <van-field
+      label-class="label"
+      custom-class="input"
+      label="标签名"
+      title-width="3.5rem"
+      maxlength="10"
+      use-button-slot
+      show-word-limit
+      model:value="{{ tagInput }}"
+    >
+      <van-button
+        slot="button"
+        size="small"
+        type="primary"
+        bind:tap="createTag"
+      >
+        新建标签
+      </van-button>
+    </van-field>
+
+    <van-cell>
+      <van-tag
+        custom-class="tag-class"
+        closeable
+        plain
+        type="primary"
+        size="large"
+        wx:for="{{ tags }}"
+        wx:key="index"
+        bind:close="onTagClose"
+        data-index="{{ index }}"
+      >
+        {{ item }}
+      </van-tag>
+    </van-cell>
+
+    <view class="uploader">
+      <van-uploader
+        upload-text="上传图片"
+        file-list="{{ filelist }}"
+        max-size="16777216"
+        max-count="1"
+        preview-size="10rem"
+        custom-class="uploader-class"
+        bind:after-read="onAfterRead"
+        bind:oversize="overSize"
+        bind:delete="onDelete"
+      ></van-uploader>
+      <van-button
+        custom-class="commit-class"
+        type="primary"
+        bind:tap="updateTheme"
+        >提 交</van-button
+      >
+    </view>
+  </van-cell-group>
+</view>

@@ -1,0 +1,37 @@
+/* pages/utheme/utheme.wxss */
+.container {
+  padding: 1rem;
+  margin-left: 5vw;
+  margin-right: 5vw;
+  width: 90vw;
+}
+
+.title {
+  font-size: xx-large;
+  font-weight: bold;
+}
+
+.label {
+  font-size: large !important;
+}
+
+.input {
+  margin-top: 0.6rem !important;
+  border: cadetblue solid 0.1rem !important;
+}
+
+.tag-class {
+  margin-left: 0.8rem;
+}
+
+.uploader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.commit-class {
+  margin-bottom: 8px !important;
+  width: 8rem !important;
+  font-size: large !important;
+}
