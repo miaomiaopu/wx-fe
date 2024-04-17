@@ -57,7 +57,6 @@
         max-size="16777216"
         max-count="1"
         preview-size="10rem"
-        custom-class="uploader-class"
         bind:after-read="onAfterRead"
         bind:oversize="overSize"
         bind:delete="onDelete"
