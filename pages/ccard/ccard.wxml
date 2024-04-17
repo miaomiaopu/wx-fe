@@ -1,0 +1,41 @@
+<!--pages/ccard/ccard.wxml-->
+<view class="container">
+  <text class="title">新建卡片</text>
+  <van-cell-group>
+    <van-uploader
+      upload-text="上传图片"
+      file-list="{{ filelist }}"
+      max-size="16777216"
+      max-count="3"
+      preview-size="5.8rem"
+      bind:after-read="onAfterRead"
+      bind:oversize="overSize"
+      bind:delete="onDelete"
+    ></van-uploader>
+    <van-field
+      label-class="label"
+      custom-class="input"
+      type="textarea"
+      label="主题名"
+      title-width="3.5rem"
+      maxlength="128"
+      required
+      show-word-limit
+      autosize="{{ {maxHeight: 300, minHeight: 80} }}"
+      model:value="{{ card_name }}"
+    ></van-field>
+    <van-field
+      label-class="label"
+      custom-class="input"
+      type="textarea"
+      label="内容"
+      title-width="3.5rem"
+      maxlength="1024"
+      required
+      show-word-limit
+      autosize="{{ {maxHeight: 300, minHeight: 120} }}"
+      model:value="{{ card_content }}"
+    ></van-field>
+    <van-button custom-class="commit-class" block size="large" type="primary" bind:tap="createCard">提 交</van-button>
+  </van-cell-group>
+</view>

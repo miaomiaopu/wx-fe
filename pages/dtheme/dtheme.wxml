@@ -1,0 +1,65 @@
+<!--pages/dtheme/dtheme.wxml-->
+<view class="container">
+  <view class="header">
+    <view class="left">
+      <text class="title">{{ theme_id }}: {{ theme_name }}</text>
+      <van-image width="100" height="100" src="{{ image }}" />
+    </view>
+    <view class="right">
+      <text class="sub">订阅数: {{ total_sub }}</text>
+      <text class="author">作者: {{ nickname }}</text>
+      <van-button
+        wx:if="{{ is_sub && !is_belong }}"
+        type="danger"
+        bind:tap="unsub"
+        >取消订阅</van-button
+      >
+      <van-button wx:if="{{ !is_sub && !is_belong }}" type="info" bind:tap="sub"
+        >订阅主题</van-button
+      >
+      <van-button wx:if="{{ is_belong }}" type="primary" bind:tap="createCard"
+        >创建卡片</van-button
+      >
+    </view>
+  </view>
+
+  <view class="card-view" wx:if="{{ is_belong }}">
+    <van-empty description="无卡片" wx:if="{{ cards.length == 0 }}"></van-empty>
+    <van-swipe-cell
+      left-width="{{ 65 }}"
+      right-width="{{ 65 }}"
+      wx:for="{{ cards }}"
+      wx:key="card_id"
+      bind:click="onMyThemeClick"
+      data-index="{{ index }}"
+    >
+      <view slot="left" class="update-button">修改</view>
+      <van-cell-group>
+        <van-cell
+          title="{{ item.card_id }}"
+          value="{{ item.card_title }}"
+          value-class="value-class"
+        ></van-cell>
+      </van-cell-group>
+      <view slot="right" class="delete-button">删除</view>
+    </van-swipe-cell>
+  </view>
+
+  <view class="card-view" wx:if="{{ !is_belong }}">
+    <van-empty description="无卡片" wx:if="{{ cards.length == 0 }}"></van-empty>
+    <van-swipe-cell
+      wx:for="{{ cards }}"
+      wx:key="card_id"
+      bind:click="onSubThemeClick"
+      data-index="{{ index }}"
+    >
+      <van-cell-group>
+        <van-cell
+          title="{{ item.card_id }}"
+          value="{{ item.card_title }}"
+          value-class="value-class"
+        ></van-cell>
+      </van-cell-group>
+    </van-swipe-cell>
+  </view>
+</view>

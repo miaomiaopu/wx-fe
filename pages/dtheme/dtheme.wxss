@@ -1,0 +1,72 @@
+/* pages/dtheme/dtheme.wxss */
+.container {
+  padding: 1rem;
+  margin-left: 3vw;
+  margin-right: 3vw;
+  width: 94vw;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header > .left {
+  flex: 0;
+  margin-right: 2rem;
+}
+
+.header > .right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-end;
+}
+
+.title {
+  font-weight: bold;
+  display: inline-block;
+  margin-bottom: 0.5rem;
+}
+
+.sub {
+  display: block;
+}
+
+.author {
+  display: block;
+}
+
+.card-view {
+  padding-top: 0.5rem;
+  width: 100%;
+}
+
+.update-button {
+  display: flex;
+  margin-right: 0.1rem;
+  width: 65px;
+  height: 100%;
+  background-color: #07c160;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.delete-button {
+  display: flex;
+  margin-left: 0.14rem;
+  width: 65px;
+  height: 100%;
+  background-color: #ee0a24;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.value-class {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

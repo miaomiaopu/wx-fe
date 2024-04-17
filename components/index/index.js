@@ -81,7 +81,10 @@ Component({
           url: `../../pages/utheme/utheme?theme=${themeParams}`,
         });
       } else if (position === "cell") {
-        console.log("detail");
+        const themeParams = encodeURIComponent(JSON.stringify(theme));
+        wx.navigateTo({
+          url: `../../pages/dtheme/dtheme?theme=${themeParams}&belong=1&sub=0`,
+        });
       } else if (position === "right") {
         // 删除主题
         wx.request({
@@ -119,8 +122,13 @@ Component({
     onSubThemeClick: function (event) {
       const position = event.detail;
       const index = event.currentTarget.dataset.index;
+
+      const theme = this.data.sub_themes[index];
       if (position === "cell") {
-        console.log("detail");
+        const themeParams = encodeURIComponent(JSON.stringify(theme));
+        wx.navigateTo({
+          url: `../../pages/dtheme/dtheme?theme=${themeParams}&belong=0&sub=1`,
+        });
       } else if (position === "right") {
         const third_session = wx.getStorageSync("third_session");
 
