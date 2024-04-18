@@ -31,7 +31,8 @@ Page({
       is_belong: belongString == 1,
       is_sub: subString == 1,
     });
-
+  },
+  onShow() {
     this.getAuthorAndCards();
   },
   getAuthorAndCards: function () {
@@ -68,7 +69,7 @@ Page({
   sub: function () {},
   createCard: function () {
     wx.navigateTo({
-      url: "../ccard/ccard",
+      url: `../ccard/ccard?theme_id=${this.data.theme_id}`,
     });
   },
   onMyThemeClick: function (event) {

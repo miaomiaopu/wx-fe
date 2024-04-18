@@ -16,7 +16,7 @@
       label-class="label"
       custom-class="input"
       type="textarea"
-      label="主题名"
+      label="卡片名"
       title-width="3.5rem"
       maxlength="128"
       required
