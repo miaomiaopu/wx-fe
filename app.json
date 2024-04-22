@@ -6,7 +6,8 @@
     "pages/ctheme/ctheme",
     "pages/utheme/utheme",
     "pages/dtheme/dtheme",
-    "pages/ccard/ccard"
+    "pages/ccard/ccard",
+    "pages/dcard/dcard"
   ],
   "tabBar": {
     "color": "#2c2c2c",

@@ -1,0 +1,47 @@
+<!--pages/dcard/dcard.wxml-->
+<view class="container">
+  <text class="title">{{ card_title }}</text>
+
+  <view wx:if="{{ str1 }}" class="str box">
+    <text>{{ str1 }}</text>
+  </view>
+  <view wx:if="{{ image1 }}" class="box">
+    <van-image
+      custom-class="image"
+      width="100"
+      height="100"
+      lazy-load
+      src="{{ image1 }}"
+    />
+  </view>
+
+  <view wx:if="{{ str2 }}" class="str box">
+    <text class="str">{{ str2 }}</text>
+  </view>
+  <view wx:if="{{ image2 }}" class="box">
+    <van-image
+      custom-class="image"
+      width="100"
+      height="100"
+      lazy-load
+      src="{{ image2 }}"
+    />
+  </view>
+
+  <view wx:if="{{ str3 }}" class="str box">
+    <text class="str">{{ str3 }}</text>
+  </view>
+  <view wx:if="{{ image3 }}" class="box">
+    <van-image
+      custom-class="image"
+      width="100"
+      height="100"
+      lazy-load
+      src="{{ image3 }}"
+    />
+  </view>
+
+  <view wx:if="{{ str4 }}" class="str box">
+    <text>{{ str4 }}</text>
+  </view>
+</view>

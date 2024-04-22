@@ -83,7 +83,9 @@ Page({
       // 修改
       console.log("left");
     } else if (position === "cell") {
-      console.log("cell");
+      wx.navigateTo({
+        url: `../dcard/dcard?card_id=${card.card_id}&card_title=${card.card_title}`,
+      })
     } else if (position === "right") {
       // 删除
       console.log("right");
