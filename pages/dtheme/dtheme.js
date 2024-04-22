@@ -65,8 +65,76 @@ Page({
       },
     });
   },
-  unsub: function () {},
-  sub: function () {},
+  unsub: function () {
+    const third_session = wx.getStorageSync("third_session");
+
+    // 取消订阅
+    wx.request({
+      url: "http://localhost:8000/api/cancelSubTheme",
+      data: {
+        third_session: third_session,
+        theme_id: this.data.theme_id,
+      },
+      method: "POST",
+      timeout: 0,
+      success: (result) => {
+        console.log(result);
+        if (result.statusCode == 404) {
+          wx.reLaunch({
+            url: "/pages/login/login",
+          });
+        } else if (result.statusCode == 200) {
+          this.setData({
+            total_sub: this.data.total_sub - 1,
+            is_sub: false,
+          });
+        } else {
+          wx.showToast({
+            title: "取消失败",
+            icon: "error",
+          });
+        }
+      },
+      fail: (err) => {
+        console.log(err);
+      },
+    });
+  },
+  sub: function () {
+    const third_session = wx.getStorageSync("third_session");
+
+    // 订阅
+    wx.request({
+      url: "http://localhost:8000/api/subTheme",
+      data: {
+        third_session: third_session,
+        theme_id: this.data.theme_id,
+      },
+      method: "POST",
+      timeout: 0,
+      success: (result) => {
+        console.log(result);
+        if (result.statusCode == 404) {
+          wx.reLaunch({
+            url: "/pages/login/login",
+          });
+        } else if (result.statusCode == 201) {
+          this.setData({
+            total_sub: this.data.total_sub + 1,
+            is_sub: true,
+          });
+        } else {
+          wx.showToast({
+            title: "订阅失败",
+            icon: "error",
+          });
+        }
+      },
+      fail: (err) => {
+        console.log(err);
+      },
+    });
+  },
   createCard: function () {
     wx.navigateTo({
       url: `../ccard/ccard?theme_id=${this.data.theme_id}`,
