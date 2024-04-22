@@ -85,10 +85,34 @@ Page({
     } else if (position === "cell") {
       wx.navigateTo({
         url: `../dcard/dcard?card_id=${card.card_id}&card_title=${card.card_title}`,
-      })
+      });
     } else if (position === "right") {
       // 删除
-      console.log("right");
+      wx.request({
+        url: "http://localhost:8000/api/deleteCard",
+        data: {
+          third_session: third_session,
+          card_id: card.card_id,
+        },
+        method: "POST",
+        timeout: 0,
+        success: (result) => {
+          console.log(result);
+          if (result.statusCode == 404) {
+            wx.reLaunch({
+              url: "/pages/login/login",
+            });
+          } else if (result.statusCode == 200) {
+            this.data.cards.splice(index, 1);
+            this.setData({
+              cards: this.data.cards,
+            });
+          }
+        },
+        fail: (err) => {
+          console.log(err);
+        },
+      });
     }
   },
   onSubThemeClick: function (event) {
