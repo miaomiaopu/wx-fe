@@ -4,6 +4,10 @@
   width: 90vw;
 }
 
+.search-button {
+  float: right;
+}
+
 .theme-view {
   padding-top: 0.5rem;
 }

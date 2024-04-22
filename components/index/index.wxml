@@ -1,11 +1,25 @@
 <!--components/index/index.wxml-->
 <view class="container">
-  <van-button icon="plus" plain type="primary" bind:tap="toCreateTheme"
-    >新建主题</van-button
-  >
+  <view>
+    <van-button icon="plus" plain type="primary" bind:tap="toCreateTheme">
+      新建主题
+    </van-button>
+    <van-button
+      custom-class="search-button"
+      icon="search"
+      plain
+      type="primary"
+      bind:tap="toSearch"
+    >
+      搜索主题
+    </van-button>
+  </view>
   <view class="theme-view">
     <text class="theme-head">我的主题</text>
-    <van-empty description="无主题" wx:if="{{ my_themes.length == 0 }}"></van-empty>
+    <van-empty
+      description="无主题"
+      wx:if="{{ my_themes.length == 0 }}"
+    ></van-empty>
     <van-swipe-cell
       left-width="{{ 65 }}"
       right-width="{{ 65 }}"
@@ -41,7 +55,10 @@
 
   <view class="theme-view">
     <text class="theme-head">我的订阅</text>
-    <van-empty description="无主题" wx:if="{{ sub_themes.length == 0 }}"></van-empty>
+    <van-empty
+      description="无主题"
+      wx:if="{{ sub_themes.length == 0 }}"
+    ></van-empty>
     <van-swipe-cell
       right-width="{{ 85 }}"
       wx:for="{{ sub_themes }}"

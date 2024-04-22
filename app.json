@@ -7,7 +7,8 @@
     "pages/utheme/utheme",
     "pages/dtheme/dtheme",
     "pages/ccard/ccard",
-    "pages/dcard/dcard"
+    "pages/dcard/dcard",
+    "pages/stheme/stheme"
   ],
   "tabBar": {
     "color": "#2c2c2c",

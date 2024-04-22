@@ -1,0 +1,49 @@
+<!--pages/stheme/stheme.wxml-->
+<view>
+  <van-search
+    field-class="search-field"
+    input-class="search-input"
+    value="{{ search }}"
+    shape="round"
+    background="#4fc08d"
+    placeholder="请输入搜索关键词"
+    bind:search="onSearch"
+  />
+
+  <view class="theme-view" wx:if="{{ is_search }}">
+    <text class="theme-head">搜索结果</text>
+    <van-empty
+      description="无主题"
+      wx:if="{{ res_themes.length == 0 }}"
+    ></van-empty>
+    <van-swipe-cell
+      right-width="{{ 65 }}"
+      wx:for="{{ res_themes }}"
+      wx:key="theme_id"
+      bind:click="onThemeClick"
+      data-index="{{ index }}"
+    >
+      <van-card
+        thumb="{{ item.theme_picture }}"
+        thumb-mode="scaleToFill"
+        title="ID: {{ item.theme_id }}"
+        desc="{{ item.theme_name }}"
+        lazy-load
+      >
+        <view slot="tags">
+          <van-tag
+            plain
+            type="primary"
+            wx:for="{{ item.tags }}"
+            wx:key="*this"
+            wx:for-item="tagItem"
+            custom-class="tag-class"
+          >
+            {{ tagItem }}
+          </van-tag>
+        </view>
+      </van-card>
+      <view slot="right" class="cancel-button">订阅</view>
+    </van-swipe-cell>
+  </view>
+</view>

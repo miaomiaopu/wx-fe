@@ -66,6 +66,11 @@ Component({
         url: "../../pages/ctheme/ctheme",
       });
     },
+    toSearch: function () {
+      wx.navigateTo({
+        url: '../../pages/stheme/stheme',
+      })
+    },
     onMyThemeClick: function (event) {
       const position = event.detail;
       const index = event.currentTarget.dataset.index;
