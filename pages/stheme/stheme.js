@@ -54,7 +54,7 @@ Page({
     if (position === "cell") {
       const themeParams = encodeURIComponent(JSON.stringify(theme));
       wx.navigateTo({
-        url: `../dtheme/dtheme?theme=${themeParams}&belong=0&sub=0`,
+        url: `../dtheme/dtheme?theme=${themeParams}&belong=0&sub=0&is_share=0`,
       });
     } else if (position === "right") {
       const third_session = wx.getStorageSync("third_session");

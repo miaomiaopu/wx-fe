@@ -88,7 +88,7 @@ Component({
       } else if (position === "cell") {
         const themeParams = encodeURIComponent(JSON.stringify(theme));
         wx.navigateTo({
-          url: `../../pages/dtheme/dtheme?theme=${themeParams}&belong=1&sub=0`,
+          url: `../../pages/dtheme/dtheme?theme=${themeParams}&belong=1&sub=0&is_share=0`,
         });
       } else if (position === "right") {
         // 删除主题
@@ -132,7 +132,7 @@ Component({
       if (position === "cell") {
         const themeParams = encodeURIComponent(JSON.stringify(theme));
         wx.navigateTo({
-          url: `../../pages/dtheme/dtheme?theme=${themeParams}&belong=0&sub=1`,
+          url: `../../pages/dtheme/dtheme?theme=${themeParams}&belong=0&sub=1&is_share=0`,
         });
       } else if (position === "right") {
         const third_session = wx.getStorageSync("third_session");

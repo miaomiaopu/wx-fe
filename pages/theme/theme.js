@@ -83,4 +83,14 @@ Page({
       },
     });
   },
+  onShareAppMessage: function () {
+    wx.showShareMenu({
+      success: function (res) {
+        console.log(res);
+      },
+      fail: function (err) {
+        console.log(err);
+      },
+    });
+  },
 });

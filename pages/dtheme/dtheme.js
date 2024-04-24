@@ -18,9 +18,24 @@ Page({
     // 处理参数
     const themeString = decodeURIComponent(options.theme);
     const theme = JSON.parse(themeString);
+    const is_share = parseInt(options.is_share);
 
-    const belongString = parseInt(options.belong);
-    const subString = parseInt(options.sub);
+    wx.onCopyUrl(() => {
+      return { query: `theme=${options.theme}&belong=0&sub=0&is_share=1` };
+    });
+    let belongString = 0;
+    let subString = 0;
+
+    if (is_share == 1) {
+      let res = this.getBelongAndSub(theme.theme_id);
+      if (res) {
+        belongString = res.belongString;
+        subString = res.subString;
+      }
+    } else {
+      belongString = parseInt(options.belong);
+      subString = parseInt(options.sub);
+    }
 
     this.setData({
       theme_id: theme.theme_id,
@@ -31,6 +46,9 @@ Page({
       is_belong: belongString == 1,
       is_sub: subString == 1,
     });
+  },
+  onUnload() {
+    wx.offCopyUrl();
   },
   onShow() {
     this.getAuthorAndCards();
@@ -193,5 +211,45 @@ Page({
         url: `../dcard/dcard?card_id=${card.card_id}&card_title=${card.card_title}`,
       });
     }
+  },
+  onShareAppMessage: function () {
+    wx.showShareMenu({
+      success: function (res) {
+        console.log(res);
+      },
+      fail: function (err) {
+        console.log(err);
+      },
+    });
+  },
+  getBelongAndSub: function (theme_id) {
+    const third_session = wx.getStorageSync("third_session");
+
+    wx.request({
+      url: "http://localhost:8000/api/getBelongAndSub",
+      data: {
+        third_session: third_session,
+        theme_id: theme_id,
+      },
+      method: "GET",
+      timeout: 0,
+      success: (result) => {
+        console.log(result);
+        if (result.statusCode == 404) {
+          wx.reLaunch({
+            url: "/pages/login/login",
+          });
+        } else if (result.statusCode == 200) {
+          const res = {
+            belongString: result.data.belongString,
+            subString: result.data.substring,
+          };
+          return res;
+        }
+      },
+      fail: (err) => {
+        console.log(err);
+      },
+    });
   },
 });
