@@ -1,4 +1,22 @@
 <!--pages/dcard/dcard.wxml-->
+<view class="header">
+  <van-button type="info">评 论</van-button>
+  <van-icon
+    color="red"
+    size="2rem"
+    wx:if="{{ !is_like }}"
+    name="like-o"
+    bind:click="like"
+  />
+  <van-icon
+    size="2rem"
+    color="red"
+    wx:if="{{ is_like }}"
+    name="like"
+    bind:click="unlike"
+  />
+</view>
+
 <view class="container">
   <text class="title">{{ card_title }}</text>
 

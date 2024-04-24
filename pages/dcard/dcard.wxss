@@ -1,4 +1,10 @@
 /* pages/dcard/dcard.wxss */
+.header {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-around;
+}
+
 .container {
   padding: 1rem;
   margin-left: 5vw;
