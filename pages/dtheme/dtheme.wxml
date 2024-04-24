@@ -26,14 +26,12 @@
   <view class="card-view" wx:if="{{ is_belong }}">
     <van-empty description="无卡片" wx:if="{{ cards.length == 0 }}"></van-empty>
     <van-swipe-cell
-      left-width="{{ 65 }}"
       right-width="{{ 65 }}"
       wx:for="{{ cards }}"
       wx:key="card_id"
       bind:click="onMyThemeClick"
       data-index="{{ index }}"
     >
-      <view slot="left" class="update-button">修改</view>
       <van-cell-group>
         <van-cell
           title="{{ item.card_id }}"

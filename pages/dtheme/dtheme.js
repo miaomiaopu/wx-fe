@@ -189,7 +189,9 @@ Page({
 
     const card = this.data.cards[index];
     if (position === "cell") {
-      console.log("cell");
+      wx.navigateTo({
+        url: `../dcard/dcard?card_id=${card.card_id}&card_title=${card.card_title}`,
+      });
     }
   },
 });

@@ -10,7 +10,7 @@
 }
 
 .title {
-  font-size: xx-large;
+  font-size: x-large;
   font-weight: bolder;
   display: block;
   margin-bottom: 0.8rem;

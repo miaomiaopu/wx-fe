@@ -43,7 +43,7 @@
   width: 100%;
 }
 
-.update-button {
+/* .update-button {
   display: flex;
   margin-right: 0.1rem;
   width: 65px;
@@ -52,7 +52,7 @@
   align-items: center;
   justify-content: center;
   color: white;
-}
+} */
 
 .delete-button {
   display: flex;
