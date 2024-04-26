@@ -38,3 +38,12 @@
   margin-top: 0.2rem;
   margin-bottom: 0.3rem;
 }
+
+.date {
+  text-align: right;
+  color: #bbb8b8;
+}
+
+.comment {
+  
+}

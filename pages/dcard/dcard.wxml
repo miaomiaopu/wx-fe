@@ -1,6 +1,6 @@
 <!--pages/dcard/dcard.wxml-->
 <view class="header">
-  <van-button type="info">评 论</van-button>
+  <van-button type="info" bind:click="comment">评 论</van-button>
   <van-icon
     color="red"
     size="2rem"
@@ -62,4 +62,27 @@
   <view wx:if="{{ str4 }}" class="str box">
     <text>{{ str4 }}</text>
   </view>
+
+  <text class="date">修改时间: {{ card_modified_date }}</text>
+</view>
+
+<view class="comment">
+  <van-divider
+    contentPosition="center"
+    customStyle="color: #1989fa; border-color: #1989fa; font-size: 1rem;"
+  >
+    评 论
+  </van-divider>
+  <van-empty wx:if="{{ comments.length == 0 }}" description="发表你的评论吧" />
+  <van-cell-group wx:for="{{ comments }}" wx:key="index">
+    <van-cell
+      center
+      title="{{ item.nickname }}"
+      value="{{ item.comment_content }}"
+      label="{{ item.comment_date }}"
+      clickable="{{ item.is_belong }}"
+      bind:click="deleteComment"
+      data-index="{{ index }}"
+    />
+  </van-cell-group>
 </view>
