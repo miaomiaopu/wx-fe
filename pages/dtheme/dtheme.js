@@ -13,6 +13,7 @@ Page({
       { card_id: 1, card_title: "1123123" },
       { card_id: 2, card_title: "112ssssssssssssss3123" },
     ],
+    is_all_study: 0
   },
   onLoad(options) {
     // 处理参数
@@ -46,6 +47,8 @@ Page({
       is_belong: belongString == 1,
       is_sub: subString == 1,
     });
+
+    this.getIsAllStudy(theme.theme_id)
   },
   onUnload() {
     wx.offCopyUrl();
@@ -252,4 +255,90 @@ Page({
       },
     });
   },
+  getIsAllStudy: function (theme_id) {
+    const third_session = wx.getStorageSync("third_session");
+
+    wx.request({
+      url: "http://localhost:8000/api/getIsAllStudy",
+      data: {
+        third_session: third_session,
+        theme_id: theme_id,
+      },
+      method: "GET",
+      timeout: 0,
+      success: (result) => {
+        console.log(result);
+        if (result.statusCode == 404) {
+          wx.reLaunch({
+            url: "/pages/login/login",
+          });
+        } else if (result.statusCode == 200) {
+          this.setData({
+            is_all_study: result.data.is_all_study
+          })
+        }
+      },
+      fail: (err) => {
+        console.log(err);
+      },
+    });
+  },
+  selectCards: function () {
+    const third_session = wx.getStorageSync("third_session");
+    const theme_id = this.data.theme_id
+
+    wx.request({
+      url: "http://localhost:8000/api/selectCards",
+      data: {
+        third_session: third_session,
+        theme_id: theme_id,
+      },
+      method: "POST",
+      timeout: 0,
+      success: (result) => {
+        console.log(result);
+        if (result.statusCode == 404) {
+          wx.reLaunch({
+            url: "/pages/login/login",
+          });
+        } else if (result.statusCode == 201) {
+          this.setData({
+            is_all_study: 1
+          })
+        }
+      },
+      fail: (err) => {
+        console.log(err);
+      },
+    });
+  },
+  cancelSelectCards: function () {
+    const third_session = wx.getStorageSync("third_session");
+    const theme_id = this.data.theme_id
+
+    wx.request({
+      url: "http://localhost:8000/api/cancelSelectCards",
+      data: {
+        third_session: third_session,
+        theme_id: theme_id,
+      },
+      method: "POST",
+      timeout: 0,
+      success: (result) => {
+        console.log(result);
+        if (result.statusCode == 404) {
+          wx.reLaunch({
+            url: "/pages/login/login",
+          });
+        } else if (result.statusCode == 200) {
+          this.setData({
+            is_all_study: 0
+          })
+        }
+      },
+      fail: (err) => {
+        console.log(err);
+      },
+    });
+  }
 });

@@ -1,6 +1,18 @@
 <!--pages/dcard/dcard.wxml-->
 <view class="header">
   <van-button type="info" bind:click="comment">评 论</van-button>
+  <van-button wx:if="{{ is_study == 0 }}" type="primary" bind:click="selectCard"
+    >添加到学习</van-button
+  >
+  <van-button wx:if="{{ is_study == 1 }}" type="primary" bind:click="cancelSelectCard"
+    >取消学习</van-button
+  >
+  <van-button
+    wx:if="{{ is_study == 2 }}"
+    type="primary"
+    disabled
+    >学习已完成</van-button
+  >
   <van-icon
     color="red"
     size="2rem"

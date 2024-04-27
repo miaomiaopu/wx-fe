@@ -22,6 +22,7 @@ Page({
       },
     ],
     inputValue: "",
+    is_study: 2,
   },
   onLoad(options) {
     const card_id_param = parseInt(options.card_id);
@@ -33,6 +34,7 @@ Page({
     this.getLike(card_id_param);
     this.getCard(card_id_param);
     this.getComments(card_id_param);
+    this.getIsStudy(card_id_param);
   },
   getLike(card_id) {
     const third_session = wx.getStorageSync("third_session");
@@ -270,4 +272,90 @@ Page({
       },
     });
   },
+  getIsStudy(card_id) {
+    const third_session = wx.getStorageSync("third_session");
+
+    wx.request({
+      url: "http://localhost:8000/api/getIsStudy",
+      data: {
+        third_session: third_session,
+        card_id: card_id,
+      },
+      method: "GET",
+      timeout: 0,
+      success: (result) => {
+        console.log(result);
+        if (result.statusCode == 404) {
+          wx.reLaunch({
+            url: "/pages/login/login",
+          });
+        } else if (result.statusCode == 200) {
+          this.setData({
+            is_study: result.data.is_study,
+          });
+        }
+      },
+      fail: (err) => {
+        console.log(err);
+      },
+    });
+  },
+  selectCard() {
+    const third_session = wx.getStorageSync("third_session");
+    const card_id = this.data.card_id
+
+    wx.request({
+      url: "http://localhost:8000/api/selectCard",
+      data: {
+        third_session: third_session,
+        card_id: card_id,
+      },
+      method: "POST",
+      timeout: 0,
+      success: (result) => {
+        console.log(result);
+        if (result.statusCode == 404) {
+          wx.reLaunch({
+            url: "/pages/login/login",
+          });
+        } else if (result.statusCode == 201) {
+          this.setData({
+            is_study: 1,
+          });
+        }
+      },
+      fail: (err) => {
+        console.log(err);
+      },
+    });
+  },
+  cancelSelectCard() {
+    const third_session = wx.getStorageSync("third_session");
+    const card_id = this.data.card_id
+
+    wx.request({
+      url: "http://localhost:8000/api/cancelSelectCard",
+      data: {
+        third_session: third_session,
+        card_id: card_id,
+      },
+      method: "POST",
+      timeout: 0,
+      success: (result) => {
+        console.log(result);
+        if (result.statusCode == 404) {
+          wx.reLaunch({
+            url: "/pages/login/login",
+          });
+        } else if (result.statusCode == 200) {
+          this.setData({
+            is_study: 0,
+          });
+        }
+      },
+      fail: (err) => {
+        console.log(err);
+      },
+    });
+  }
 });

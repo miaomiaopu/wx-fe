@@ -8,18 +8,45 @@
     <view class="right">
       <text class="sub">订阅数: {{ total_sub }}</text>
       <text class="author">作者: {{ nickname }}</text>
-      <van-button
-        wx:if="{{ is_sub && !is_belong }}"
-        type="danger"
-        bind:tap="unsub"
-        >取消订阅</van-button
-      >
-      <van-button wx:if="{{ !is_sub && !is_belong }}" type="info" bind:tap="sub"
-        >订阅主题</van-button
-      >
-      <van-button wx:if="{{ is_belong }}" type="primary" bind:tap="createCard"
-        >创建卡片</van-button
-      >
+      <view>
+        <van-button
+          custom-class="study-button"
+          wx:if="{{ is_all_study == 0 }}"
+          type="primary"
+          bind:tap="selectCards"
+          >添加学习</van-button
+        >
+        <van-button
+          custom-class="study-button"
+          wx:if="{{ is_all_study == 1 }}"
+          type="primary"
+          bind:tap="cancelSelectCards"
+          >取消学习</van-button
+        >
+        <van-button
+          custom-class="study-button"
+          wx:if="{{ is_all_study == 2 }}"
+          type="primary"
+          disabled
+          >学习完成</van-button
+        >
+
+        <van-button
+          wx:if="{{ is_sub && !is_belong }}"
+          type="danger"
+          bind:tap="unsub"
+          >取消订阅</van-button
+        >
+        <van-button
+          wx:if="{{ !is_sub && !is_belong }}"
+          type="info"
+          bind:tap="sub"
+          >订阅主题</van-button
+        >
+        <van-button wx:if="{{ is_belong }}" type="primary" bind:tap="createCard"
+          >创建卡片</van-button
+        >
+      </view>
     </view>
   </view>
 

@@ -43,6 +43,10 @@
   width: 100%;
 }
 
+.study-button {
+  margin-right: 0.2rem;
+}
+
 /* .update-button {
   display: flex;
   margin-right: 0.1rem;
