@@ -5,6 +5,15 @@
       新建主题
     </van-button>
     <van-button
+      custom-class="study-button"
+      icon="flag-o"
+      plain
+      type="primary"
+      bind:tap="study"
+    >
+      开始学习
+    </van-button>
+    <van-button
       custom-class="search-button"
       icon="search"
       plain

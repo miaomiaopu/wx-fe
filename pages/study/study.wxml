@@ -1,0 +1,92 @@
+<!--pages/study/study.wxml-->
+<van-sticky>
+  <van-button
+    wx:if="{{ !showInfo }}"
+    custom-class="btn"
+    bind:click="remember"
+    type="primary"
+    >清楚</van-button
+  >
+  <van-button
+    wx:if="{{ !showInfo }}"
+    custom-class="btn"
+    bind:click="uncertain"
+    type="info"
+    >模糊</van-button
+  >
+  <van-button
+    wx:if="{{ !showInfo }}"
+    custom-class="btn"
+    bind:click="forget"
+    type="warning"
+    >忘记</van-button
+  >
+  <van-button
+    wx:if="{{ showInfo }}"
+    size="large"
+    bind:click="nextCard"
+    type="info"
+    >下一张卡片</van-button
+  >
+</van-sticky>
+
+<view class="header">
+  <text class="num">
+    已学 {{ studyTimes.length - needStudyCards.length }}/{{ studyTimes.length }}
+  </text>
+</view>
+
+<view class="container">
+  <text class="title">{{ card_title }}</text>
+
+  <view wx:if="{{ needStudyCards[index].s_phase == 0 || showInfo }}">
+    <view wx:if="{{ str1 }}" class="str box">
+      <text>{{ str1 }}</text>
+    </view>
+    <view wx:if="{{ image1 }}" class="box">
+      <van-image
+        custom-class="image"
+        width="100"
+        height="100"
+        lazy-load
+        src="{{ image1 }}"
+      />
+    </view>
+
+    <view wx:if="{{ str2 }}" class="str box">
+      <text class="str">{{ str2 }}</text>
+    </view>
+    <view wx:if="{{ image2 }}" class="box">
+      <van-image
+        custom-class="image"
+        width="100"
+        height="100"
+        lazy-load
+        src="{{ image2 }}"
+      />
+    </view>
+
+    <view wx:if="{{ str3 }}" class="str box">
+      <text class="str">{{ str3 }}</text>
+    </view>
+    <view wx:if="{{ image3 }}" class="box">
+      <van-image
+        custom-class="image"
+        width="100"
+        height="100"
+        lazy-load
+        src="{{ image3 }}"
+      />
+    </view>
+
+    <view wx:if="{{ str4 }}" class="str box">
+      <text>{{ str4 }}</text>
+    </view>
+  </view>
+
+  <view
+    class="cloud"
+    wx:if="{{ needStudyCards[index].s_phase == 1 && !showInfo }}"
+  >
+  </view>
+</view>

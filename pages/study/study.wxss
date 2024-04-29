@@ -1,0 +1,58 @@
+/* pages/study/study.wxss */
+.btn {
+  width: 30vw;
+  margin: 1rem 0 1rem 2.5vw;
+}
+
+.header {
+  display: flex;
+  margin: 0 1rem 0 3rem;
+}
+
+.num {
+  color: #bbb8b8;
+  height: 0.3rem;
+  line-height: 0.3rem;
+}
+
+.container {
+  padding: 1rem;
+  margin-left: 5vw;
+  margin-right: 5vw;
+  width: 90vw;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.title {
+  font-size: x-large;
+  font-weight: bolder;
+  display: block;
+  margin-bottom: 0.8rem;
+}
+
+.str {
+  font-size: 1.25rem;
+  padding: 0.5rem;
+  background-color: #f5f4f4;
+  border-radius: 0.5rem;
+}
+
+.image {
+  padding: 0.3rem;
+  border: 0.1rem solid #cce8e3;
+}
+
+.box {
+  margin-top: 0.2rem;
+  margin-bottom: 0.3rem;
+}
+
+.cloud {
+  padding: 0.5rem;
+  height: 10rem;
+  background-color: #f5f4f4;
+  border-radius: 0.5rem;
+}
+

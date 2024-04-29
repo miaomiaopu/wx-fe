@@ -68,8 +68,8 @@ Component({
     },
     toSearch: function () {
       wx.navigateTo({
-        url: '../../pages/stheme/stheme',
-      })
+        url: "../../pages/stheme/stheme",
+      });
     },
     onMyThemeClick: function (event) {
       const position = event.detail;
@@ -196,6 +196,54 @@ Component({
           console.log(err);
         },
       });
+    },
+    study: function () {
+      let studyTimes = wx.getStorageSync("studyTimes");
+
+      if (studyTimes && studyTimes.length != 0) {
+        // 如果存在，直接跳转
+        const studyTimesParam = encodeURIComponent(JSON.stringify(studyTimes));
+        wx.navigateTo({
+          url: `../../pages/study/study?studyTimes=${studyTimesParam}`,
+        });
+      } else {
+        // 不存在，则获取之后再跳转
+        const third_session = wx.getStorageSync("third_session");
+
+        wx.request({
+          url: "http://localhost:8000/api/getStudyCards",
+          data: {
+            third_session: third_session,
+          },
+          method: "GET",
+          timeout: 0,
+          success: (result) => {
+            console.log(result);
+            if (result.statusCode == 404) {
+              wx.reLaunch({
+                url: "/pages/login/login",
+              });
+            } else if (result.statusCode == 200) {
+              studyTimes = result.data.studyTimes;
+              wx.setStorageSync("studyTimes", studyTimes);
+              const studyTimesParam = encodeURIComponent(
+                JSON.stringify(studyTimes)
+              );
+              wx.navigateTo({
+                url: `../../pages/study/study?studyTimes=${studyTimesParam}`,
+              });
+            } else if (result.statusCode == 202) {
+              wx.showToast({
+                title: "没有需要学习的卡片哦~",
+                icon: "none",
+              });
+            }
+          },
+          fail: (err) => {
+            console.log(err);
+          },
+        });
+      }
     },
   },
 });

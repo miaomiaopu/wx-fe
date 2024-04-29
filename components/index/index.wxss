@@ -4,6 +4,10 @@
   width: 90vw;
 }
 
+.study-button {
+  margin-left: 0.38rem;
+}
+
 .search-button {
   float: right;
 }

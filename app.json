@@ -8,7 +8,8 @@
     "pages/dtheme/dtheme",
     "pages/ccard/ccard",
     "pages/dcard/dcard",
-    "pages/stheme/stheme"
+    "pages/stheme/stheme",
+    "pages/study/study"
   ],
   "tabBar": {
     "color": "#2c2c2c",
