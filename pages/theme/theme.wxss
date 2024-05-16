@@ -8,7 +8,6 @@
   display: flex; /* 使用 flex 布局 */
   justify-self: space-between;
   align-items: center; /* 垂直居中对齐 */
-  background-color: white;
   width: 100vw;
 }
 
@@ -18,8 +17,10 @@
 }
 
 .nickname {
+  margin-left: 1.2rem;
+  flex: auto;
   font-size: x-large;
-  padding-right: 4rem;
+  /* padding-right: 2rem; */
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;

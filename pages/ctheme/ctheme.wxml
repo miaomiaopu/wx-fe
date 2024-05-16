@@ -34,7 +34,7 @@
       </van-button>
     </van-field>
 
-    <van-cell>
+    <van-cell custom-class="cell-class">
       <van-tag
         custom-class="tag-class"
         closeable

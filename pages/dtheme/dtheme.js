@@ -10,8 +10,8 @@ Page({
     is_belong: false,
     is_sub: false,
     cards: [
-      { card_id: 1, card_title: "1123123" },
-      { card_id: 2, card_title: "112ssssssssssssss3123" },
+      { card_id: 1, card_title: "1123123", card_modified_date: "" },
+      { card_id: 2, card_title: "112ssssssssssssss3123", card_modified_date: "" },
     ],
     is_all_study: 0
   },

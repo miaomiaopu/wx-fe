@@ -3,6 +3,7 @@
   <van-sticky offset-top="-1">
     <view class="userinfo">
       <van-image
+        wx:if="{{ false }}"
         class="avatar"
         width="3rem"
         height="3rem"
@@ -10,7 +11,7 @@
         radius="0.5rem"
         bind:tap="infoChange"
       ></van-image>
-      <text class="nickname">{{ nickname }}</text>
+      <text class="nickname">昵称: {{ nickname }}</text>
       <van-icon class="wap-home-o" name="wap-home-o" size="2rem" bind:tap="changeIndex"/>
       <van-icon
         class="comment-o"

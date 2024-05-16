@@ -14,9 +14,10 @@
 .data-grid {
   margin: 1rem 0;
   width: 90vw;
-  border: 1px solid gainsboro;
+  border: 0.08rem solid gainsboro;
   box-shadow: 0.3rem 0.3rem 0.3rem gray;
 }
+
 
 .prop {
   padding-left: 1rem;

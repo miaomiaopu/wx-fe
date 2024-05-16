@@ -10,3 +10,13 @@
   padding: 200rpx 0;
   box-sizing: border-box;
 }
+
+page {
+  min-height: 100vh;
+  min-width: 100vw;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-color: white;
+  background-image: url('http://localhost:8000/images/background.jpg');
+}

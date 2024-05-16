@@ -7,8 +7,10 @@ Page({
     check_ins: [],
   },
   onLoad: function (options) {
-    this.getDataListWithThirdSession();
     this.getDate();
+  },
+  onShow: function () {
+    this.getDataListWithThirdSession();
   },
   getDataListWithThirdSession: function () {
     const third_session = wx.getStorageSync("third_session");

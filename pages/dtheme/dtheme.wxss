@@ -6,6 +6,14 @@
   width: 94vw;
 }
 
+.swipe-class {
+  border-bottom: 0.1rem solid #1081b6;
+}
+
+.cell-class {
+  background-color: transparent !important;
+}
+
 .header {
   display: flex;
   justify-content: space-between;

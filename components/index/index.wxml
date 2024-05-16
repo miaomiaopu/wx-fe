@@ -30,6 +30,7 @@
       wx:if="{{ my_themes.length == 0 }}"
     ></van-empty>
     <van-swipe-cell
+      custom-class="cell-class"
       left-width="{{ 65 }}"
       right-width="{{ 65 }}"
       wx:for="{{ my_themes }}"
@@ -39,6 +40,7 @@
     >
       <view slot="left" class="update-button">修改</view>
       <van-card
+        custom-class="card-class"
         thumb="{{ item.theme_picture }}"
         thumb-mode="scaleToFill"
         title="ID: {{ item.theme_id }}"
@@ -69,6 +71,7 @@
       wx:if="{{ sub_themes.length == 0 }}"
     ></van-empty>
     <van-swipe-cell
+      custom-class="cell-class"
       right-width="{{ 85 }}"
       wx:for="{{ sub_themes }}"
       wx:key="theme_id"
@@ -76,6 +79,7 @@
       data-index="{{ index }}"
     >
       <van-card
+        custom-class="card-class"
         thumb="{{ item.theme_picture }}"
         thumb-mode="scaleToFill"
         title="ID: {{ item.theme_id }}"

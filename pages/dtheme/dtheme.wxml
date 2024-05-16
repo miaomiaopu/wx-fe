@@ -53,6 +53,7 @@
   <view class="card-view" wx:if="{{ is_belong }}">
     <van-empty description="无卡片" wx:if="{{ cards.length == 0 }}"></van-empty>
     <van-swipe-cell
+      custom-class="swipe-class"
       right-width="{{ 65 }}"
       wx:for="{{ cards }}"
       wx:key="card_id"
@@ -61,8 +62,9 @@
     >
       <van-cell-group>
         <van-cell
-          title="{{ item.card_id }}"
-          value="{{ item.card_title }}"
+          custom-class="cell-class"
+          title="{{ item.card_title }}"
+          value="{{ item.card_modified_date }}"
           value-class="value-class"
         ></van-cell>
       </van-cell-group>
@@ -73,6 +75,7 @@
   <view class="card-view" wx:if="{{ !is_belong }}">
     <van-empty description="无卡片" wx:if="{{ cards.length == 0 }}"></van-empty>
     <van-swipe-cell
+      custom-class="swipe-class"
       wx:for="{{ cards }}"
       wx:key="card_id"
       bind:click="onSubThemeClick"
@@ -80,8 +83,9 @@
     >
       <van-cell-group>
         <van-cell
-          title="{{ item.card_id }}"
-          value="{{ item.card_title }}"
+          custom-class="cell-class"
+          title="{{ item.card_title }}"
+          value="{{ item.card_modified_date }}"
           value-class="value-class"
         ></van-cell>
       </van-cell-group>

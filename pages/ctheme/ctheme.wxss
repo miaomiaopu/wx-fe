@@ -20,6 +20,10 @@
   border: cadetblue solid 0.1rem !important;
 }
 
+.cell-class {
+  background-color: transparent !important;
+}
+
 .tag-class {
   margin-left: 0.8rem;
 }

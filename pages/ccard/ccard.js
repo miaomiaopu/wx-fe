@@ -127,7 +127,7 @@ Page({
               card_id = JSON.parse(result.data).card_id;
 
               // 继续
-              for (let index = 1; index < this.data.filelist.length; index++) {
+              for (index = 1; index < this.data.filelist.length; index++) {
                 const file = this.data.filelist[index];
 
                 wx.uploadFile({
@@ -146,7 +146,7 @@ Page({
                         url: "/pages/login/login",
                       });
                     } else if (result.statusCode == 201) {
-                      if (index == this.data.filelist.length - 1) {
+                      if (index == this.data.filelist.length) {
                         wx.navigateBack();
                       }
                     }

@@ -35,18 +35,21 @@
 .str {
   font-size: 1.25rem;
   padding: 0.5rem;
-  background-color: #f5f4f4;
+  background-color: #66c6f7;
+  color: white;
   border-radius: 0.5rem;
 }
 
 .image {
   padding: 0.3rem;
-  border: 0.1rem solid #cce8e3;
+  width: 100% !important;
+  height: 10rem !important;
 }
 
 .box {
   margin-top: 0.2rem;
   margin-bottom: 0.3rem;
+  text-align: center;
 }
 
 .cloud {

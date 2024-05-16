@@ -9,7 +9,9 @@
     "pages/ccard/ccard",
     "pages/dcard/dcard",
     "pages/stheme/stheme",
-    "pages/study/study"
+    "pages/study/study",
+    "pages/ranking/ranking",
+    "pages/setting/setting"
   ],
   "tabBar": {
     "color": "#2c2c2c",

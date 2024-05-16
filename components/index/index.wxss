@@ -4,6 +4,14 @@
   width: 90vw;
 }
 
+.cell-class {
+  border-top: 0.11rem solid #1081b6;
+}
+
+.card-class {
+  background-color: transparent;
+}
+
 .study-button {
   margin-left: 0.38rem;
 }
